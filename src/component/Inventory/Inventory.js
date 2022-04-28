@@ -1,33 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import InventoryDetails from '../InventoryDEtails/InventoryDetails';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Inventory = () => {
+const Inventory = ({inventory}) => {
+    const { _id, name, price, description, img } = inventory
 
-    const [inventories, setInventories] = useState([])
+    const navigate = useNavigate()
+    const navigateTODetails = id => {
+        navigate(`/inventory/${_id}`)
+    }
 
-    useEffect(() => {
-
-        fetch('books.json')
-            .then(res => res.json())
-            .then(data => setInventories(data))
-
-    }, [])
     return (
         <div>
-                 <div className='w-90vh px-4 pt-10 pb-24 mx-auto max-w-7xl md:px-2'>
-            <div className="text-center">
-                <h1 className='text-4xl py-10 ' > our product</h1>
-            </div>
+            <div className='shadow-lg rounded-2xl bg-white h-54 p-4'>
+                <div className=" gap-4 ">
+                    <div className="flex-shrink-0 ">
+                        <img className=' h-30 mx-auto -full object-cover' src={img} alt="profile" />
+                    </div>
+                    <div className="flex flex-col justify-end py-2">
+                        <p className=' text-lg'>{name}</p>
+                        <p className='text-gray-600 text-sm mt-1 ' >{description}</p>
+                        <p className=' '>price :{price}</p>
+                        <button onClick={() => navigateTODetails(_id)} className='rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white'>Book now</button>
+                    </div>
+                </div>
 
-            <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 justify-items-center">
-                {
-                    inventories.map(inventory => <InventoryDetails
-                        key={inventory.id}
-                        inventory={inventory}
-                    ></InventoryDetails>)
-                }
+
             </div>
-        </div>
         </div>
     );
 };

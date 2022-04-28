@@ -8,8 +8,8 @@ import Blog from './component/Blog/Blog'
 import Register from './Auth/Register/Register';
 import Footer from './component/Footer/Footer';
 import NotFound from './component/NotFound/NotFound';
-import Inventory from './component/Inventory/Inventory';
 import InventoryDetails from './component/InventoryDEtails/InventoryDetails';
+import Inventories from './component/Inventory/Inventories';
 
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/inventory' element={<Inventory></Inventory>}></Route>
+        <Route path='/inventories' element={<Inventories></Inventories>}></Route>
         <Route path='/inventory/:id' element={<RequireAuth>
          <InventoryDetails></InventoryDetails>
         </RequireAuth>}></Route>

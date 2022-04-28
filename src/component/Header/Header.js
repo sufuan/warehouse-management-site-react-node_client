@@ -19,7 +19,7 @@ const Header = () => {
             <div className='flex gap-4 text-xl '>
                 <NavLink to='/' className={({ isActive }) => isActive ? 'text-emerald-400' : 'black'}>Home</NavLink>
 
-                <NavLink to='/inventory' className={({ isActive }) => isActive ? 'text-emerald-400' : 'black'}>inventory</NavLink>
+                <NavLink to='/inventories' className={({ isActive }) => isActive ? 'text-emerald-400' : 'black'}>inventory</NavLink>
 
               
 
