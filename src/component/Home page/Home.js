@@ -41,10 +41,10 @@ const Home = () => {
             <section>
                 <h1 className='text-3xl text-center'>sample product </h1>
 
-                <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 justify-items-center">
+                <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center">
                     {
 
-                        inventories?.slice(0, 3).map(inventory => <HomeProducts
+                        inventories?.slice(0, 6).map(inventory => <HomeProducts
                             inventory={inventory}
                             key={inventories._id}
                         ></HomeProducts>)

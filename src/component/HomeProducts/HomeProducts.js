@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const HomeProducts = ({inventory}) => {
-    const {_id, name , img , supplier,description}=inventory
+    const {_id, name , img , supplier,description,quantity}=inventory
 
     const navigate = useNavigate()
     const navigateTODetails = id => {
@@ -18,7 +18,8 @@ const HomeProducts = ({inventory}) => {
                 <div className="flex flex-col justify-end py-2">
                     <p className=' text-lg'>{name}</p>
                     <p className='text-gray-600 text-sm mt-1 ' >{description}</p>
-                    <button onClick={() => navigateTODetails(_id)} className='rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white'>Book now</button>
+                    <p>Quantity:{quantity}</p>
+                    <button onClick={() => navigateTODetails(_id)} className='rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white'>Update Product</button>
                 </div>
             </div>
 
