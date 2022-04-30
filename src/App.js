@@ -10,6 +10,7 @@ import Footer from './component/Footer/Footer';
 import NotFound from './component/NotFound/NotFound';
 import InventoryDetails from './component/InventoryDEtails/InventoryDetails';
 import Inventories from './component/Inventory/Inventories';
+import UploadProduct from './component/UploadProduct/UploadProduct';
 
 const App = () => {
   return (
@@ -24,7 +25,7 @@ const App = () => {
         </RequireAuth>
         }></Route>
      
-
+        <Route path='/uploadPd' element={<UploadProduct></UploadProduct>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/login' element={<LOgin></LOgin>}></Route>
         <Route path='/register' element={<Register></Register>}> </Route>
