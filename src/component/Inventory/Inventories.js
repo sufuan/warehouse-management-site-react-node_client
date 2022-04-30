@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import useInventory from '../../hooks/useInventory';
 import Inventory from './Inventory';
 
 const Inventories = () => {
-    const [inventories, setInventories] = useState([])
-
-    useEffect(() => {
-
-        fetch('books.json')
-            .then(res => res.json())
-            .then(data => setInventories(data))
-
-    }, [])
+   const [inventories, setInventories] =useInventory()
     return (
         <div>
                  <div className='w-90vh px-4 pt-10 pb-24 mx-auto max-w-7xl md:px-2'>
