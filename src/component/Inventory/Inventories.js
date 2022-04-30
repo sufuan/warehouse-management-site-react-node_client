@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useInventory from '../../hooks/useInventory';
-import Inventory from './Inventory';
 
 const Inventories = () => {
   const [inventories, setInventories] = useInventory()
