@@ -21,11 +21,11 @@ const Inventories = () => {
     .then(res=>res.json())
     .then(data=>{
       console.log(data)
-      // if(data.deletedCount>0){
-      //   console.log('deleted');
-      //   const remaining = inventories.filter(product=>product._id !== id)
-      //   setInventories(remaining)
-      // }
+      if(data.deletedCount>0){
+        console.log('deleted');
+        const remaining = inventories.filter(product=>product._id !== id)
+        setInventories(remaining)
+      }
     })
 
 
@@ -56,7 +56,7 @@ const Inventories = () => {
                 </th>
 
                 <th scope="col" class="px-6 py-3">
-                  Price
+                 supplier
                 </th>
                 <th scope="col" class="px-6 py-3">
                   <span class="sr-only">Edit</span>
@@ -78,7 +78,7 @@ const Inventories = () => {
                         {inventory.supplier}
                       </td>
                       <td class="px-6 py-4 text-right">
-                      <button onClick={() => handleDelete(inventory._id)} className="font-medium mx-2 text-blue-600  hover:underline">delete</button> 
+                      <button onClick={() => handleDelete(inventory._id)} className="font-medium mx-2 text-red-600  hover:underline">delete</button> 
 
 
 

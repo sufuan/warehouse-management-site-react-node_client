@@ -25,8 +25,8 @@ const UploadProduct = () => {
             });
 
         console.log(name, supplier,description,quantity,img);
-        e.target.name.value = ''
-        e.target.price.value = ''
+        e.target.reset()
+        
 
     }
     return (
