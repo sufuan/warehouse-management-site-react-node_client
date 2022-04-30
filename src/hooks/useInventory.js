@@ -5,7 +5,7 @@ const useInventory = () => {
 
     useEffect(() => {
 
-        fetch('books.json')
+        fetch('http://localhost:4000/products')
             .then(res => res.json())
             .then(data => setInventories(data))
 
