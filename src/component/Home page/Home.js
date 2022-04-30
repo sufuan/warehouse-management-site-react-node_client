@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import bookwh from '../../assests/book-house.jpg'
 import useInventory from '../../hooks/useInventory';
 import HomeProducts from '../HomeProducts/HomeProducts';
@@ -44,21 +44,19 @@ const Home = () => {
                 <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 justify-items-center">
                     {
 
-                        inventories?.slice(0, 3).map(inventory =><HomeProducts
-                        inventory={inventory}
-                        key={inventories._id}
+                        inventories?.slice(0, 3).map(inventory => <HomeProducts
+                            inventory={inventory}
+                            key={inventories._id}
                         ></HomeProducts>)
                     }
                 </div>
-
-
-
-
-
-                { }
             </section>
+                
 
-
+           <div className='text-center my-9'>
+           <Link class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" to='inventories' > Manage Inventory</Link>
+           </div>
+       
 
         </div>
     );
