@@ -5,8 +5,8 @@ import Loading from '../component/Loading/Loading';
 import { auth } from '../firebase';
 
 const RequireAuth = ({children}) => {
-    // const [user,loading] =useAuthState(auth)
-    // const [user, loading,] = useAuthState(auth);
+    const [user,loading] =useAuthState(auth)
+    const [user, loading,] = useAuthState(auth); 
     const location= useLocation()
 
 
