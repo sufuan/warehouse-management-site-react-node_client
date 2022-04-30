@@ -5,6 +5,40 @@ import Inventory from './Inventory';
 
 const Inventories = () => {
   const [inventories, setInventories] = useInventory()
+
+
+
+  const handleDelete = (id) => {
+    const confirmDelete = window.confirm('wannna delete?')
+    if (confirmDelete) {
+      console.log(id);
+
+    const url= `http://localhost:4000/products/${id}`
+    fetch(url, {
+      method:"DELETE",
+
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+      // if(data.deletedCount>0){
+      //   console.log('deleted');
+      //   const remaining = inventories.filter(product=>product._id !== id)
+      //   setInventories(remaining)
+      // }
+    })
+
+
+
+
+
+
+
+
+
+
+    }
+  }
   return (
 
 
@@ -44,7 +78,7 @@ const Inventories = () => {
                         {inventory.supplier}
                       </td>
                       <td class="px-6 py-4 text-right">
-                        <Link to={`/updatepd/${inventory._id}`} className="font-medium text-red-600  hover:underline">delete</Link>
+                      <button onClick={() => handleDelete(inventory._id)} className="font-medium mx-2 text-blue-600  hover:underline">delete</button> 
 
 
 
