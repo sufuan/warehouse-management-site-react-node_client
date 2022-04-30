@@ -21,11 +21,25 @@ const Header = () => {
 
                 <NavLink to='/inventories' className={({ isActive }) => isActive ? 'text-emerald-400' : 'black'}>inventory</NavLink>
 
-              
+
 
                 <NavLink to='/blog' className={({ isActive }) => isActive ? 'text-emerald-400' : 'black'}>Blog</NavLink>
 
-                
+                {
+                    user ? <NavLink to='/inventories' className={({ isActive }) => isActive ? 'text-emerald-400' : 'black'}>Manage Items</NavLink> : <p></p>
+                }
+
+                {
+                    user ? <NavLink to='/uploadPd' className={({ isActive }) => isActive ? 'text-emerald-400' : 'black'}>Add Items</NavLink> : <p></p>
+                }
+
+                {
+                    user ? <NavLink to='/myitems' className={({ isActive }) => isActive ? 'text-emerald-400' : 'black'}>My Items</NavLink> : <p></p>
+                }
+
+
+
+
 
                 {
                     user ? <button onClick={() => signOut(auth)}>SignOut</button> : <NavLink to="/login" className={({ isActive }) => isActive ? 'text-emerald-400' : 'black'}>login  </NavLink>

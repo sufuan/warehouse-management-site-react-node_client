@@ -11,6 +11,7 @@ import NotFound from './component/NotFound/NotFound';
 import InventoryDetails from './component/InventoryDEtails/InventoryDetails';
 import Inventories from './component/Inventory/Inventories';
 import UploadProduct from './component/UploadProduct/UploadProduct';
+import MyItems from './component/MyItems/MyItems'
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         }></Route>
      
         <Route path='/uploadPd' element={<UploadProduct></UploadProduct>}></Route>
+        <Route path='/myitems' element={<MyItems></MyItems>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/login' element={<LOgin></LOgin>}></Route>
         <Route path='/register' element={<Register></Register>}> </Route>
