@@ -19,7 +19,9 @@ const App = () => {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/inventories' element={<Inventories></Inventories>}></Route>
         <Route path='/inventory/:id' element={
-         <InventoryDetails></InventoryDetails>
+        <RequireAuth>
+           <InventoryDetails></InventoryDetails>
+        </RequireAuth>
         }></Route>
      
 
