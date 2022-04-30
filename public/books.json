@@ -1,33 +1,40 @@
 [
   {"_id":"1",
-    "price": "$1,603.64",
+  
     "img": "https://dummyimage.com/420x260",
     "name": "Brandy Jimenez",
     "supplier": "ISODRIVE",
     "description": "Aliqua excepteur pariatur commodo laboris enim _id in aute magna qui aliqua ipsum. Velit irure reprehenderit amet fugiat excepteur ipsum sunt aute sint laborum. Occaecat nulla excepteur ea magna. Veniam ullamco amet anim ad. Enim qui officia quis minim esse. Ex fugiat _id aliqua in dolore.\r\n"
   },
   {"_id":"2",
-    "price": "$1,222.25",
+    
     "img": "https://dummyimage.com/420x260",
     "name": "Schroeder Lara",
     "supplier": "ORBALIX",
     "description": "Dolore laborum officia est duis voluptate do non aliquip magna non aute consequat. Cup_idatat et est eiusmod consequat veniam eiusmod aliquip consequat est tempor fugiat est cup_idatat. Inc_id_idunt commodo nisi cillum aliqua _id tempor adipisicing. Anim _id magna velit et aliqua esse in.\r\n"
   },
   {"_id":"3",
-    "price": "$3,725.91",
+    
     "img": "https://dummyimage.com/420x260",
     "name": "Hamilton Sanchez",
     "supplier": "ZENSOR",
     "description": "Consectetur enim occaecat nulla culpa laboris et occaecat pariatur ullamco. Velit do aliqua magna veniam ipsum quis nisi ea ipsum anim cillum officia cup_idatat. Reprehenderit commodo voluptate minim Lorem elit pariatur duis et fugiat commodo. Elit laboris quis ad ea fugiat amet aliqua inc_id_idunt anim. Consectetur cillum reprehenderit ex reprehenderit adipisicing cup_idatat _id deserunt do consequat consectetur laborum cup_idatat laboris. Nulla ipsum eu ullamco Lorem qui.\r\n"
   },
   {"_id":"4",
-    "price": "$1,788.51",
+   
     "img": "https://dummyimage.com/420x260",
     "name": "Lupe Mccray",
     "supplier": "INTERLOO",
     "description": "Laborum pariatur esse elit _id exercitation consectetur ullamco elit in amet aliqua duis laborum. Nostrud ut adipisicing _id fugiat veniam sunt sunt ex pariatur. Esse aliqua in laborum cup_idatat ex minim sit enim et. Laborum adipisicing culpa officia nulla velit anim exercitation voluptate reprehenderit ea.\r\n"
   },
   {"_id":"5",
+    "price": "$3,298.52",
+    "img": "https://dummyimage.com/420x260",
+    "name": "Ophelia Knapp",
+    "supplier": "IMAGINART",
+    "description": "Duis do aliqua sint ex consectetur pro_ident aute in ad pariatur elit inc_id_idunt. Aliqua nulla cillum sit laborum sint. Eu inc_id_idunt culpa aute pariatur culpa est inc_id_idunt tempor eiusmod cillum nulla mollit deserunt. Labore esse commodo dolore deserunt. Tempor sint cillum voluptate in.\r\n"
+  },
+  {"_id":"6",
     "price": "$3,298.52",
     "img": "https://dummyimage.com/420x260",
     "name": "Ophelia Knapp",
