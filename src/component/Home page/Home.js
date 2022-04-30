@@ -1,9 +1,20 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import bookwh from '../../assests/book-house.jpg'
+import useInventory from '../../hooks/useInventory';
+import HomeProducts from '../HomeProducts/HomeProducts';
 
 
 
 const Home = () => {
+    const [inventories, setInventories] = useInventory()
+    console.log(inventories)
+
+    const navigate = useNavigate()
+    const navigateTODetails = id => {
+        // navigate(`/inventory/${_id}`)
+    }
+
     return (
         <div>
 
@@ -18,7 +29,7 @@ const Home = () => {
                             Deliver books on time.
                         </h1>
                         <p className="mb-8 leading-relaxed">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe dolorem, esse numquam maiores e</p>
-                       
+
                     </div>
                 </div>
             </section>
@@ -27,9 +38,27 @@ const Home = () => {
             service section start */}
 
 
-           
+            <section>
+                <h1 className='text-3xl text-center'>sample product </h1>
 
-           
+                <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 justify-items-center">
+                    {
+
+                        inventories?.slice(0, 3).map(inventory =><HomeProducts
+                        inventory={inventory}
+                        key={inventories._id}
+                        ></HomeProducts>)
+                    }
+                </div>
+
+
+
+
+
+                { }
+            </section>
+
+
 
         </div>
     );
