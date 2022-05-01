@@ -84,9 +84,7 @@ const MyItems = () => {
     
     return (
         <div>
-        <div className='text-center flex justify-end my-9'>
-          {/* <Link class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" to='/uploadPd' >Add Product</Link> */}
-        </div>
+           <h1 className='text-2xl m-5'>My items : {myitems.length}</h1>
         <section>
           <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
