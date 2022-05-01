@@ -63,11 +63,11 @@ const MyItems = () => {
         .then(res=>res.json())
         .then(data=>{
           console.log(data)
-        //   if(data.deletedCount>0){
-        //     console.log('deleted');
-        //     const remaining = inventories.filter(product=>product._id !== id)
-        //     setInventories(remaining)
-        //   }
+          if(data.deletedCount>0){
+            console.log('deleted');
+            const remaining = myitems.filter(product=>product._id !== id)
+            setMyitems(remaining)
+          }
         })
     
     
