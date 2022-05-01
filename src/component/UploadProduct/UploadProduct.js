@@ -1,7 +1,10 @@
 import axios from 'axios';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase';
 
 const UploadProduct = () => {
+    const [user] = useAuthState(auth);
 
 
     const handleSubmit = e => {
@@ -11,6 +14,7 @@ const UploadProduct = () => {
         const description = e.target.description.value;
         const quantity = e.target.quantity.value;
         const img = e.target.img.value;
+        const email=user.email
 
 
 
@@ -18,13 +22,13 @@ const UploadProduct = () => {
 
 
         axios.post("http://localhost:4000/uploadpd", {
-            name,supplier,description,quantity,img
+            name,supplier,description,quantity,img,email 
         })
             .then((response) => {
                 console.log(response);
             });
 
-        console.log(name, supplier,description,quantity,img);
+        console.log(name, supplier,description,quantity,img,email);
         e.target.reset()
         
 
