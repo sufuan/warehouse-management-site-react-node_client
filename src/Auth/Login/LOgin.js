@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
 import googlelogo from '../../assests/google.png'
@@ -7,6 +7,7 @@ import googlelogo from '../../assests/google.png'
 
 const LOgin = () => {
 
+  const [user1] = useAuthState(auth);
   const [userInfo, setUserinfo] = useState({
     email: '',
     password: '',
@@ -107,15 +108,17 @@ const LOgin = () => {
   const from = location?.state?.from?.pathname || '/'
 
 
+
   useEffect(() => {
-    if (user) {
+    if (user1) {
+
       const url = 'http://localhost:4000/login'
       console.log(url);
-
+      console.log(user1.email)
       fetch(url, {
         method: 'POST',
         body: JSON.stringify({
-          email: user.email
+          email: user1.email
         }),
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
@@ -126,11 +129,10 @@ const LOgin = () => {
           localStorage.setItem("accessToken", data.token);
           navigate(from, { replace: true });
           console.log(data);
-
+  
         })
-      // navigate(from)
     }
-  }, [user])
+  }, [user1])
 
   //  redirect after gogle login 
 
