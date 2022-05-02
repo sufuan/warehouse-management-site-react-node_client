@@ -8,7 +8,7 @@ const Inventories = () => {
 
 
   const handleDelete = (id) => {
-    const confirmDelete = window.confirm('wannna delete?')
+    const confirmDelete = window.confirm('are you sure ?')
     if (confirmDelete) {
       console.log(id);
 

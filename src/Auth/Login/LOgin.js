@@ -109,7 +109,26 @@ const LOgin = () => {
 
   useEffect(() => {
     if (user) {
-      navigate(from)
+      const url = 'http://localhost:4000/login'
+      console.log(url);
+
+      fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({
+          email: user.email
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+        .then((response) => response.json())
+        .then(data => {
+          localStorage.setItem("accessToken", data.token);
+          navigate(from, { replace: true });
+          console.log(data);
+
+        })
+      // navigate(from)
     }
   }, [user])
 
@@ -138,8 +157,8 @@ const LOgin = () => {
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form className="space-y-6" onSubmit={handleLogin}>
- 
- {/* email input  */}
+
+              {/* email input  */}
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
@@ -159,7 +178,7 @@ const LOgin = () => {
                 {errors?.emailError && <p className='text-red-600'>{errors.emailError}</p>}
               </div>
 
-             {/* pass input  */}
+              {/* pass input  */}
 
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">
@@ -181,7 +200,7 @@ const LOgin = () => {
                 {errors?.passError && <p className='text-red-600 text-sm'>{errors.passError}</p>}
               </div>
 
-                {errors.generaleError && <p className='text-red-600 text-sm'>{errors.generaleError}</p>}
+              {errors.generaleError && <p className='text-red-600 text-sm'>{errors.generaleError}</p>}
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center">

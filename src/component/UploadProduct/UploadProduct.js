@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast, ToastContainer } from 'react-toastify';
 import { auth } from '../../firebase';
 
 const UploadProduct = () => {
@@ -26,6 +27,7 @@ const UploadProduct = () => {
         })
             .then((response) => {
                 console.log(response);
+                toast('Product uploaded')
             });
 
         console.log(name, supplier,description,quantity,img,email);
@@ -36,13 +38,14 @@ const UploadProduct = () => {
     return (
         <div>
             <form className='text-center' onSubmit={handleSubmit}>
-                <input className='my-4' type="text" name="name" id="name" placeholder='name' /> <br />
-                <input className='my-4' type="text" name="supplier" id="supplier" placeholder='supplier' /> <br />
-                <input className='my-4' type="text" name="description" id="description" placeholder='description' /> <br />
-                <input className='my-4' type="number" name="quantity" id="quantity" placeholder='quantity' /> <br />
-                <input className='my-4' type="text" name="img" id="img" placeholder='img' /> <br />
-                <input type="submit" value="uoload" />
+                <input required className='my-4' type="text" name="name" id="name" placeholder='name' /> <br />
+                <input required className='my-4' type="text" name="supplier" id="supplier" placeholder='supplier' /> <br />
+                <input required className='my-4' type="text" name="description" id="description" placeholder='description' /> <br />
+                <input required className='my-4' type="number" name="quantity" id="quantity" placeholder='quantity' /> <br />
+                <input required className='my-4' type="text" name="img" id="img" placeholder='img' /> <br />
+                <input required type="submit" value="uoload" />
             </form>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
