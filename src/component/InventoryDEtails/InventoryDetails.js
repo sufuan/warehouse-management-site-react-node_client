@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -7,15 +7,17 @@ const InventoryDetails = () => {
     const { id } = useParams()
     // console.log(id);
     const [product, setProduct] = useState({})
-    const { description, img, name, supplier, quantity,price } = product
+    const { description, img, name, supplier, quantity, price } = product
 
 
+
+    //    setting quantity value as useState initialize value 
     const [updateQuantity, setUpdateQuantity] = useState(quantity)
     useEffect(() => {
         setUpdateQuantity(quantity)
     }, [quantity])
 
-    console.log(updateQuantity);
+
 
     useEffect(() => {
         fetch(`http://localhost:4000/product/${id}`)
@@ -30,10 +32,6 @@ const InventoryDetails = () => {
     const handleAddItem = (e) => {
         e.preventDefault()
         const quantity = +(e.target.quantity.value)
-        // console.log(newQuan);
-
-        console.log(typeof quantity);
-
         fetch(`http://localhost:4000/product/${id}`, {
             method: "PUT",
             headers: {
@@ -46,7 +44,7 @@ const InventoryDetails = () => {
                 console.log(data)
                 toast('added')
             });
-         e.target.reset()
+        e.target.reset()
 
     }
 
@@ -80,10 +78,10 @@ const InventoryDetails = () => {
                     <div className="lg:grid lg:grid-cols-12 lg:auto-rows-min lg:gap-x-8">
                         <div className="lg:col-start-8 lg:col-span-5">
                             <div className="flex items-center justify-between">
-                            <h1 className="text-xl font-medium text-gray-900">{name}</h1>
-                            <h2 className="text-xl font-medium text-gray-900">Price $:{price}</h2>
+                                <h1 className="text-xl font-medium text-gray-900">{name}</h1>
+                                <h2 className="text-xl font-medium text-gray-900">Price $:{price}</h2>
                             </div>
-                           
+
 
                             <div className="mt-4">
 
@@ -101,15 +99,15 @@ const InventoryDetails = () => {
                             </div>
 
                             <div className="flex items-center mt-2">
-                         <p className="">
-                        Quantity:                        </p>
+                                <p className="">
+                                    Quantity:                        </p>
 
-                       <div className="ml-4 flex">
-                             <p className="text-sm font-medium ">
-                                 {updateQuantity}
-                             </p>
-                         </div>
-                   </div>
+                                <div className="ml-4 flex">
+                                    <p className="text-sm font-medium ">
+                                        {updateQuantity}
+                                    </p>
+                                </div>
+                            </div>
 
 
                         </div>
@@ -130,32 +128,28 @@ const InventoryDetails = () => {
                                 deliver
                             </button>
                             <form onSubmit={handleAddItem}>
-                            <h1 className='mt-8 text-lg '>Restock New Arrival Items</h1>
+                                <h1 className='mt-8 text-lg '>Restock New Arrival Items</h1>
 
-                            <div className="flex items-center  justify-between">
+                                <div className="flex items-center  justify-between">
 
-                            <div>
-                                 <input className=" appearance-none block  py-2 px-10 border border-gray-300 rounded-md  shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm my-5" name='quantity' type="number" placeholder='restock item ' required />
-                             </div>
+                                    <div>
+                                        <input className=" appearance-none block  py-2 px-10 border border-gray-300 rounded-md  shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm my-5" name='quantity' type="number" placeholder='restock item ' required />
+                                    </div>
 
-                             <button
-                       type="submit"
-                       className=" bg-indigo-600 border border-transparent rounded-md py-2 px-10 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"                  >
-                        Restock
-                    </button>
+                                    <button
+                                        type="submit"
+                                        className=" bg-indigo-600 border border-transparent rounded-md py-2 px-10 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"                  >
+                                        Restock
+                                    </button>
 
-                            </div>
-
-                            
-
-
+                                </div>
 
                             </form>
 
 
 
 
-                            {/* Product details */}
+                          
                             <div className="mt-10">
                                 <h1 className='texl-xl'>Product Description:</h1>
                                 <h2 className="text-sm font-medium text-gray-900">{description}</h2>
@@ -169,9 +163,13 @@ const InventoryDetails = () => {
 
                         </div>
                     </div>
+                   
                 </div>
             </div>
             <ToastContainer></ToastContainer>
+            <div className='text-center my-9'>
+                        <Link class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" to='/inventories' > Manage Inventory</Link>
+                    </div>
         </div>
     );
 };

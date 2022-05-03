@@ -1,33 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Loading from '../../Auth/Loading/Loading';
+import Loading from '../Loading/Loading';
 import { auth } from '../../firebase';
 
 const MyItems = () => {
 
   const [myitems, setMyitems] = useState([])
   const [user, loading,] = useAuthState(auth);
-
-
-
-  // useEffect(() => {
-
-
-
-  //     const myItem = async () => {
-  //         // console.log(user?.email);
-
-  //          const email =user?.email
-  //          console.log(email);
-  //         const { data } = await axios.get(`http://localhost:4000/products?email${email}`)
-  //         setMyitems(data)
-  //     }
-  //     myItem()
-
-  // }, [user])
-
-
 
 
   useEffect(() => {
@@ -40,16 +20,9 @@ const MyItems = () => {
 
     const url = `http://localhost:4000/myitems?email=${email}`
 
-    // console.log(url);
-    // fetch(url)
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     console.log(data);
-    //     setMyitems(data)
-    //   })
+  
 
-
-    const { data } = axios.get(url, {
+    axios.get(url, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`
       }
@@ -59,7 +32,7 @@ const MyItems = () => {
       setMyitems(data.data)
     })
 
-  }, [user])
+  }, [user,loading])
 
 
 
