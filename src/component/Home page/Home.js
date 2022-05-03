@@ -41,7 +41,7 @@ const Home = () => {
                                 <span className=" text-black">Maximize your warehouse <br /> efficiency</span>
                             </h1>
                             <p className="mt-6 max-w-lg mx-auto text-center text-xl text-white sm:max-w-3xl">
-                            Modern online warehouse
+                                Modern online warehouse
                             </p>
                             <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
                                 <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
@@ -57,17 +57,27 @@ const Home = () => {
 
 
             <section >
-                <h1 className='text-3xl text-center my-10 text-gray-600'>Check out what's hittin' our shelves!</h1>
 
-                <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center">
-                    {
 
-                        inventories?.slice(0, 6).map(inventory => <HomeProducts
-                            inventory={inventory}
-                            key={inventories._id}
-                        ></HomeProducts>)
-                    }
+                <div className="bg-white">
+                    <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+                        <h2 className="text-2xl text-center py-5 font-bold text-gray-700">Check out what's hittin' our shelves!</h2>
+
+                        <div className="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
+
+
+                            {
+
+                                inventories?.slice(0, 6).map(inventory => <HomeProducts
+                                    inventory={inventory}
+                                    key={inventories._id}
+                                ></HomeProducts>)
+                            }
+
+                        </div>
+                    </div>
                 </div>
+
 
 
                 <div className='text-center my-9'>
@@ -86,42 +96,44 @@ const Home = () => {
 
 
 
+
+
             {/* hero section  */}
             <section className="text-gray-600 body-font">
-            <div className="bg-gray-50 pt-12 sm:pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-          Advanced features made simple
-          </h2>
-          <p className="mt-3 text-xl text-gray-500 sm:mt-4">
-          Use cutting-edge automation and advanced routes to manage any warehouse.</p>
-        </div>
-      </div>
-      <div className="mt-10 pb-12 bg-white sm:pb-16">
-        <div className="relative">
-          <div className="absolute inset-0 h-1/2 bg-gray-50" />
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <dl className="rounded-lg bg-white shadow-lg sm:grid sm:grid-cols-3">
-                <div className="flex flex-col border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r">
-                  <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Drop-shipping</dt>
-                  <dd className="order-1 text-5xl font-extrabold text-indigo-600">100%</dd>
+                <div className="bg-gray-50 pt-12 sm:pt-16">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="max-w-4xl mx-auto text-center">
+                            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                                Advanced features made simple
+                            </h2>
+                            <p className="mt-3 text-xl text-gray-500 sm:mt-4">
+                                Use cutting-edge automation and advanced routes to manage any warehouse.</p>
+                        </div>
+                    </div>
+                    <div className="mt-10 pb-12 bg-white sm:pb-16">
+                        <div className="relative">
+                            <div className="absolute inset-0 h-1/2 bg-gray-50" />
+                            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                                <div className="max-w-4xl mx-auto">
+                                    <dl className="rounded-lg bg-white shadow-lg sm:grid sm:grid-cols-3">
+                                        <div className="flex flex-col border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r">
+                                            <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Drop-shipping</dt>
+                                            <dd className="order-1 text-5xl font-extrabold text-indigo-600">100%</dd>
+                                        </div>
+                                        <div className="flex flex-col border-t border-b border-gray-100 p-6 text-center sm:border-0 sm:border-l sm:border-r">
+                                            <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Delivery</dt>
+                                            <dd className="order-1 text-5xl font-extrabold text-indigo-600">24/7</dd>
+                                        </div>
+                                        <div className="flex flex-col border-t border-gray-100 p-6 text-center sm:border-0 sm:border-l">
+                                            <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Multi-warehouse</dt>
+                                            <dd className="order-1 text-5xl font-extrabold text-indigo-600">100k</dd>
+                                        </div>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="flex flex-col border-t border-b border-gray-100 p-6 text-center sm:border-0 sm:border-l sm:border-r">
-                  <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Delivery</dt>
-                  <dd className="order-1 text-5xl font-extrabold text-indigo-600">24/7</dd>
-                </div>
-                <div className="flex flex-col border-t border-gray-100 p-6 text-center sm:border-0 sm:border-l">
-                  <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Multi-warehouse</dt>
-                  <dd className="order-1 text-5xl font-extrabold text-indigo-600">100k</dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
             </section>
             <section>
                 <div className="relative bg-gray-50 pt-16 overflow-hidden sm:pt-24 lg:pt-32">
