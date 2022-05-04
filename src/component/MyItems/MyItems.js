@@ -8,6 +8,9 @@ const MyItems = () => {
 
   const [myitems, setMyitems] = useState([])
   const [user, loading,] = useAuthState(auth);
+  const [isLoading, setLoading] = useState(true)
+
+
 
 
   useEffect(() => {
@@ -18,7 +21,7 @@ const MyItems = () => {
     console.log(email);
 
 
-    const url = `http://localhost:4000/myitems?email=${email}`
+    const url = `https://pure-harbor-66242.herokuapp.com/myitems?email=${email}`
 
   
 
@@ -30,6 +33,7 @@ const MyItems = () => {
     .then(data =>{
       console.log(data.data)
       setMyitems(data.data)
+      setLoading(false)
     })
 
   }, [user,loading])
@@ -41,7 +45,7 @@ const MyItems = () => {
     if (confirmDelete) {
       console.log(id);
 
-      const url = `http://localhost:4000/products/${id}`
+      const url = `https://pure-harbor-66242.herokuapp.com/products/${id}`
       fetch(url, {
         method: "DELETE",
 
@@ -68,7 +72,7 @@ const MyItems = () => {
     }
   }
 
-  return (
+  return ( isLoading ? (<Loading></Loading>) :
     <div>
       <h1 className='text-2xl m-5'>My items : {myitems.length}</h1>
       <section>

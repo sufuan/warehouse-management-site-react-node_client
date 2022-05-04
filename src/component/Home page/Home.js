@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import bookwh from '../../assests/book-house.jpg'
 import useInventory from '../../hooks/useInventory';
 import HomeProducts from '../HomeProducts/HomeProducts';
 
 
 
 const Home = () => {
-    const [inventories, setInventories] = useInventory()
+    const [inventories, setInventories ,isLoading] = useInventory()
     console.log(inventories)
 
     const navigate = useNavigate()
@@ -70,6 +69,7 @@ const Home = () => {
 
                                 inventories?.slice(0, 6).map(inventory => <HomeProducts
                                     inventory={inventory}
+                                    isLoading={isLoading}
                                     key={inventories._id}
                                 ></HomeProducts>)
                             }

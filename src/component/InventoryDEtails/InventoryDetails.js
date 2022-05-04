@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Loading from '../Loading/Loading';
 
 const InventoryDetails = () => {
     const { id } = useParams()
     // console.log(id);
     const [product, setProduct] = useState({})
     const { description, img, name, supplier, quantity, price } = product
+    const [isLoading, setLoading] = useState(true)
+
 
 
 
@@ -17,22 +20,24 @@ const InventoryDetails = () => {
         setUpdateQuantity(quantity)
     }, [quantity])
 
-
+    //  Loading single products Details
 
     useEffect(() => {
-        fetch(`http://localhost:4000/product/${id}`)
+        fetch(`https://pure-harbor-66242.herokuapp.com/product/${id}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 setProduct(data)
+                setLoading(false)
             })
     }, [id])
 
+//                restock items 
 
     const handleAddItem = (e) => {
         e.preventDefault()
         const quantity = +(e.target.quantity.value)
-        fetch(`http://localhost:4000/product/${id}`, {
+        fetch(`https://pure-harbor-66242.herokuapp.com/product/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -42,20 +47,20 @@ const InventoryDetails = () => {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data)
-                toast('added')
+                toast('Product updated')
             });
         e.target.reset()
 
     }
 
-
+         //  devliver button 
 
     const handleDecrease = () => {
 
         console.log(updateQuantity);
         setUpdateQuantity(updateQuantity - 1)
 
-        fetch(`http://localhost:4000/product/${id}`, {
+        fetch(`https://pure-harbor-66242.herokuapp.com/product/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -69,7 +74,7 @@ const InventoryDetails = () => {
     }
 
 
-    return (
+    return ( isLoading ? (<Loading></Loading>) :
 
         <div className="bg-white">
             <div className="pt-6 pb-16 sm:pb-24">
